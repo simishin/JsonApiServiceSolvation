@@ -9,7 +9,7 @@ import org.top.jsonapiservicesolvation.logic.ISolvator;
 
 // НАш контроллер
 @Controller                                // REST-контроллер
-@RequestMapping("/service")             // маршрутизация
+@RequestMapping("/api")             // маршрутизация
 public class SolvationService {
 
     @Autowired                      // аннотация автосвязывания
