@@ -48,8 +48,8 @@ public class SolvationService {
     public @ResponseBody ClassMessages.IMessage action(@RequestBody Demand input){
         Answer out = activator.action(input);
         if (out == null) {
-            System.out.println("coefficient a should be != 0");
-            return new ClassMessages.ErrorMessage("coefficient a should be != 0");
+            System.out.println("incorrect source data");
+            return new ClassMessages.ErrorMessage("incorrect source data");
         }
         return out;
     }
