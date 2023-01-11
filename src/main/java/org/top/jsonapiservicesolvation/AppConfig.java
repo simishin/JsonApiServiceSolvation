@@ -2,6 +2,8 @@ package org.top.jsonapiservicesolvation;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.top.jsonapiservicesolvation.logic.ActionImpl;
+import org.top.jsonapiservicesolvation.logic.IAction;
 import org.top.jsonapiservicesolvation.logic.ISolvator;
 import org.top.jsonapiservicesolvation.logic.SolvatorImpl;
 
@@ -14,4 +16,6 @@ public class AppConfig {
     ISolvator solvator() {
         return new SolvatorImpl();
     }
+    @Bean
+    IAction activator(){ return new ActionImpl(); }
 }
