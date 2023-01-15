@@ -19,15 +19,9 @@ public class ActionImpl implements IAction{
             if (x.measure().trim().toLowerCase().startsWith("r")) b=false;;
 
         double y = b ? Math.toRadians(x.corner()) : x.corner();
-//        System.out.println( x.toString()+"\t"+y+"\t"+2* y +"\t"+((2*y) % Math.PI));
-//        if ( 2*y == Math.PI ) new Answer(Math.sqrt(x.sideFirst()*x.sideFirst() + x.sideSecond()*x.sideSecond()
-//                - 2* x.sideFirst()* x.sideSecond()));
-//        if ((2*y) % Math.PI == 0 )  return  null;
-        if ( Math.abs(y)> (3*Math.PI)) try {//изменен для проверки тестирования
-            throw new IllegalAccessException("For isi testing");
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
+        if ( Math.abs(y)> (3*Math.PI)) //изменен для проверки тестирования
+            throw new ArithmeticException("For isi testing");
+
         if ( Math.abs(y)> (2*Math.PI)) throw new IllegalArgumentException("Угол больше 2Пи");
 
         return new Answer(Math.sqrt(x.sideFirst()*x.sideFirst() + x.sideSecond()*x.sideSecond()

@@ -26,15 +26,17 @@ public class ActionImplTest {
      */
     @Test
     void action() {
-        Demand x = new Demand(3.0, 4.0, 390.0,"");
-        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        Demand x = new Demand(3.0, 4.0, 1390.0,"");
+        RuntimeException thrown = assertThrows( RuntimeException.class, () -> {
 
             Answer y = z.action(x);
 //            assertEquals(y.oppositeSide(),5);
             //Code under test
         });
-        Assertions.assertEquals("Угол больше 2Пи", thrown.getMessage());
- //       assertTrue(thrown.getMessage().contains("Угол больше 2Пи")); //альтернатива
+        System.out.println(thrown.getMessage());
+        System.out.println(thrown.getClass().getName());
+        Assertions.assertEquals("Угол больше 2Пи", thrown.getMessage()); //для первого прерывания
+ //       assertTrue(thrown.getMessage().contains("Угол больше 2Пи")); //альтернатива для первого прерывания
     } //----------------------------------------------------------------------------------
     @Test
     void actionF() { //используется для проверки  только типа исключения.
@@ -72,9 +74,10 @@ public class ActionImplTest {
         Demand x = new Demand(x1, x2, x3, x4);
         if (y.isNaN()) {
             System.out.println("IllegalArgumentException");
-            Assertions.assertThrows(IllegalArgumentException.class, () -> {
-                z.action(x);
-            });
+            Assertions.assertThrows(
+                    IllegalArgumentException.class,
+                    () -> { z.action(x); }
+            );
         }
         else {
             assertEquals(y, z.action(x).oppositeSide(),0.0001);
