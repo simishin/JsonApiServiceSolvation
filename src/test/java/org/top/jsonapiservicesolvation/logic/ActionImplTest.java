@@ -1,7 +1,9 @@
 package org.top.jsonapiservicesolvation.logic;
 
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+//import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -15,6 +17,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
+@DisplayName("SIM-class ActionImplTest")
 public class ActionImplTest {
     ActionImpl z = new ActionImpl();
 
@@ -25,8 +28,9 @@ public class ActionImplTest {
      * используется для проверки более подробной информации о сгенерированном исключении
      */
     @Test
-    void action() {
-        Demand x = new Demand(3.0, 4.0, 1390.0,"");
+    @DisplayName("Avattura")
+    public void action() {
+        Demand x = new Demand(3.0, 4.0, 390.0,"");
         RuntimeException thrown = assertThrows( RuntimeException.class, () -> {
 
             Answer y = z.action(x);
@@ -39,7 +43,7 @@ public class ActionImplTest {
  //       assertTrue(thrown.getMessage().contains("Угол больше 2Пи")); //альтернатива для первого прерывания
     } //----------------------------------------------------------------------------------
     @Test
-    void actionF() { //используется для проверки  только типа исключения.
+    public void actionF() { //используется для проверки  только типа исключения.
         Demand x = new Demand(3.0, 4.0, 390.0,"");
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
 
@@ -52,7 +56,7 @@ public class ActionImplTest {
      * вариант с урока
      */
     @Test
-    void actionq() {
+    public void actionq() {
         Demand x = new Demand(3.0, 4.0, 390.0,"");
         try {
             Answer y = z.action(x);
